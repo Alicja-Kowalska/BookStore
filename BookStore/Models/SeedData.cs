@@ -22,7 +22,6 @@ public static class SeedData
                     Title = "Głosy z zaświatów",
                     Author = "Remigiusz Mróz",
                     Genre = "kryminał",
-                    Rating = "R",
                     RentalDate = DateTime.Parse("2024-10-01"),
                     ReturnDate =  DateTime.Parse("2024-10-03")
                 }

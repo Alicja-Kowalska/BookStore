@@ -1,0 +1,65 @@
+﻿@model BookStore.Models.BookGenreAuthorViewModel
+
+@{
+    ViewData["Title"] = "Books";
+}
+
+<h1>Book List</h1>
+<form asp-controller="BookList" asp-action="Index" method="get">
+    <p>
+        Title: <input type="text" asp-for="SearchString" />
+        <select asp-for="Author" asp-items="Model.Authors">
+            <option value="">All</option>
+        </select>
+        <select asp-for="BookGenre" asp-items="Model.Genres">
+            <option value="">All</option>
+        </select>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Books![0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Books![0].Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Books![0].Genre)
+            </th>
+            <th>
+                @Html.DisplayName("Status")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Books!)
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Genre)
+                    </td>
+                    <td>
+                        @if (item.RentalDate != null)
+                        {
+                            @Html.DisplayName("Borrowed")
+                        }
+                        else
+                        {
+                            @Html.DisplayName("Free")
+                        }
+                    </td>
+                    <td></td>
+                </tr>          
+        }
+    </tbody>
+</table>

@@ -19,13 +19,13 @@ namespace BookStore.Models
         [StringLength(30)]
         public string? Genre { get; set; }
 
-        public string? Rating { get; set; }
+
         [Display(Name = "Rental Date")]
         [DataType(DataType.Date)]
-        public DateTime RentalDate { get; set; }
+        public DateTime? RentalDate { get; set; }
         [Display(Name = "Return Date")]
         [DataType(DataType.Date)]
-        public DateTime ReturnDate { get; set; }
+        public DateTime? ReturnDate { get; set; }
 
     }
 }
